@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brew Haven Café</title>
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D2B48C;
+            --accent-color: #F4E4BC;
+            --text-color: #2F2F2F;
+            --white: #FFFFFF;
+            --main-font: 'Georgia', serif;
+            --heading-font: 'Arial', sans-serif;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--main-font);
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--accent-color);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        h1 {
+            font-family: var(--heading-font);
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        /* Navigation Styles */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+
+        /* Main Content Styles */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-family: var(--heading-font);
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        /* Welcome Section */
+        #welcome {
+            text-align: center;
+        }
+
+        .cafe-image {
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 5px solid var(--secondary-color);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            margin: 20px 0;
+        }
+
+        /* Menu Section */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .menu-category h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-decoration: underline;
+        }
+
+        .menu-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .menu-category li {
+            background-color: var(--accent-color);
+            margin: 8px 0;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.2s ease;
+        }
+
+        .menu-category li:hover {
+            transform: translateX(10px);
+            background-color: var(--secondary-color);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .contact-details p {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .contact-details a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-details a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .social-links {
+            text-align: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 25px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            transform: scale(1.1);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .menu-grid,
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>☕ Brew Haven Café</h1>
+            <nav>
+                <ul>
+                    <li><a href="#welcome">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="welcome">
+            <h2>Welcome to Brew Haven Café</h2>
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                 alt="Cozy café interior with warm lighting" class="cafe-image">
+            <p>Step into our warm and welcoming café where every cup tells a story. We pride ourselves on serving the finest locally roasted coffee, freshly baked pastries, and creating a community space where friends gather and memories are made.</p>
+            <p>Whether you're starting your morning with our signature blend, meeting friends for lunch, or finding a quiet corner to work, Sunny Side Café is your home away from home.</p>
+        </section>
+
+        <section id="menu">
+            <h2>Our Menu</h2>
+            <div class="menu-grid">
+                <div class="menu-category">
+                    <h3>☕ Hot Beverages</h3>
+                    <ul>
+                        <li>Espresso - J$400</li>
+                        <li>Cappuccino - J$700</li>
+                        <li>Latte - J$500</li>
+                        <li>Americano - J$350</li>
+                        <li>Mocha - J$600</li>
+                        <li>Hot Chocolate - J$450</li>
+                        <li>Chai Latte - J$475</li>
+                    </ul>
+                </div>
+                <div class="menu-category">
+                    <h3>🧊 Cold Beverages</h3>
+                    <ul>
+                        <li>Iced Coffee - J$400</li>
+                        <li>Cold Brew - J$450</li>
+                        <li>Iced Latte - J$500</li>
+                        <li>Frappuccino - J$575</li>
+                        <li>Iced Tea - J$350</li>
+                        <li>Fresh Juice - J$425</li>
+                        <li>Smoothies - J$600</li>
+                    </ul>
+                </div>
+                <div class="menu-category">
+                    <h3>🥐 Pastries & Snacks</h3>
+                    <ul>
+                        <li>Croissant - J$325</li>
+                        <li>Muffins - J$150</li>
+                        <li>Danish Pastry - J$350</li>
+                        <li>Bagel with Cream Cheese - J$400</li>
+                        <li>Cookies - J$100</li>
+                        <li>Cake Slice - J$450</li>
+                    </ul>
+                </div>
+                <div class="menu-category">
+                    <h3>🍽️ Light Meals</h3>
+                    <ul>
+                        <li>Avocado Toast - J$600</li>
+                        <li>Grilled Sandwich - J$400</li>
+                        <li>Caesar Salad - J$900</li>
+                        <li>Soup of the Day - J$650</li>
+                        <li>Quiche - J$800</li>
+                        <li>Panini - J$825</li>
+                        <li>Breakfast Wrap - J$750</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <div class="contact-details">
+                    <p><strong>📍 Address:</strong><br>
+                    26 Duncan Street<br>
+                    New Kingston, Kingston 10, Jamaica</p>
+                    
+                    <p><strong>📞 Phone:</strong><br>
+                    <a href="tel:+8769984567">(876) 998-4567</a></p>
+                    
+                    <p><strong>✉️ Email:</strong><br>
+                    <a href="mailto:brewhavencafe42@gmail.com">brewhavencafe42@gmail.com</a></p>
+                    
+                    <p><strong>🕒 Hours:</strong><br>
+                    Monday - Friday: 6:00 AM - 5:00 PM<br>
+                    Saturday - Sunday: 7:00 AM - 6:00 PM</p>
+                </div>
+                
+                <div class="social-links">
+                    <h3>Follow Us</h3>
+                    <a href="https://www.facebook.com/profile.php?id=61581288415825" target="_blank">Facebook</a>
+                    <a href="https://www.instagram.com/brewhavencafee?igsh=MTJyZTBldGt3c25jZw%3D%3D&utm_source=qr" target="_blank">Instagram</a> 
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Brew Haven Café. All rights reserved. | Serving happiness one cup at a time ☕</p>
+    </footer>
+</body>
+</html>
